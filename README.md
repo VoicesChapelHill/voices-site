@@ -17,7 +17,7 @@ no data from the production site:
         $ cd voices
         $ git submodule update --init --recursive
 
-* Create a new MySQL database user and database to use for this site. If you need to create a new MySQL user and aren't familiar with that, [[this post|https://codex.wordpress.org/Installing_WordPress#Using_the_MySQL_Client]] may help, but here's a synopsis:
+* Create a new MySQL database user and database to use for this site. If you need to create a new MySQL user and aren't familiar with that, [this post](https://codex.wordpress.org/Installing_WordPress#Using_the_MySQL_Client) may help, but here's a synopsis:
 
         $ mysql -u root -p
         Enter password:
