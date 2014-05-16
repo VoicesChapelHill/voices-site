@@ -4,6 +4,17 @@ Voices web site
 This is the source of the Voices web site, in production at
 http://voiceschapelhill.org.
 
+Overview
+--------
+
+This is a WordPress site, with a custom theme, deployed a little differently
+than the most common approach of just copying the WordPress code into the
+site directory.
+
+In this case, our site directory is under git version control, and the
+WordPress code is in a subdirectory, managed as a git submodule pointing
+at the GitHub mirror of the official WordPress source.
+
 Deploying the web site with no data
 -----------------------------------
 
@@ -92,3 +103,44 @@ If you want to set up a new site with the same data from an existing site.
         $ bunzip2 <voices-YYYYMMDD.sql.bz2 | mysql -u username -p voicesdb
 
 * That ought to do it.
+
+Upgrading WordPress
+-------------------
+
+* Make a fresh backup of your database! If the upgrade goes wrong, you can
+  easily backoff the source changes, but if they've made changes to your
+  database, the only way to recover will be restoring a backup.  So make
+  sure you have a fresh one.
+* cd to the `wordpress` subdir
+
+        $ cd wordpress
+
+* update from the upstream repo:
+
+        $ git fetch
+
+* Find out what the latest version is:
+
+        $ git tag | tail -1
+        3.9.1
+
+* Check that out:
+
+        $ git checkout 3.9.1
+
+* go back to the site dir
+
+        $ cd ..
+
+* commit the changes and push
+
+        $ git add wordpress
+        $ git commit -am "Upgrade wordpress to 3.9.1"
+        $ git push
+
+* Visit the wordpress admin. If any database migrations are needed, it'll
+  walk you through them.
+
+* If anything doesn't work, you can always backup to a working version
+  of wordpress. If the upgrade changed your database, you'll have to restore
+  your database backup. Which you made at the beginning of doing this, right? :-)
