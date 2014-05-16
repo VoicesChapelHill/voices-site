@@ -10,12 +10,22 @@ Deploying the web site with no data
 If you wanted to set up a new site, using the same configuration and theme, but
 no data from the production site:
 
-* Clone this repo somewhere, e.g. `/var/www/voices`, and check out the submodules too:
+* Clone this repo somewhere - and please read these instructions carefully even
+  if you're familiar with _git_ because these are not the standard way to do it.
+
+  We want two uncommon things:
+
+  * Keep the git files outside the working tree, to make sure that no
+    web server misconfiguration can accidentally expose our entire repo.
+  * Check out submodules along with the source.
+
+  So if you want to put the site files at `/var/www/voices`, do this:
 
         $ cd /var/www
-        $ git clone git@github.com:VoicesChapelHill/voices-site.git voices
-        $ cd voices
-        $ git submodule update --init --recursive
+        $ git clone --recursive --separate-git-dir=voices.git git@github.com:VoicesChapelHill/voices-site.git voices
+
+  That will put the files that normally live under `.git` in your working tree
+  at `voices.git` in the parent directory instead.
 
 * Create a new MySQL database user and database to use for this site. If you need to create a new MySQL user and aren't familiar with that, [this post](https://codex.wordpress.org/Installing_WordPress#Using_the_MySQL_Client) may help, but here's a synopsis:
 
