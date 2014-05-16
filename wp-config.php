@@ -14,7 +14,7 @@
  * @package WordPress
  */
 
-define('WP_SITEURL', 'http://' . $_SERVER['HTTP_HOST'] );
+define('WP_SITEURL', 'http://' . $_SERVER['HTTP_HOST'] . '/wordpress' );
 define('WP_HOME', 'http://' . $_SERVER['HTTP_HOST'] );
 define('WP_CONTENT_DIR', $_SERVER['DOCUMENT_ROOT'] . '/wp-content');
 define('WP_CONTENT_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/wp-content' );
