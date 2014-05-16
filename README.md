@@ -1,3 +1,9 @@
+Voices web site
+===============
+
+This is the source of the Voices web site, in production at
+http://voiceschapelhill.org.
+
 Deploying the web site with no data
 -----------------------------------
 
