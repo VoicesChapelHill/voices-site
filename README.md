@@ -13,7 +13,12 @@ site directory.
 
 In this case, our site directory is under git version control, and the
 WordPress code is in a subdirectory, managed as a git submodule pointing
-at the GitHub mirror of the official WordPress source.
+at the GitHub mirror of the official WordPress source. There are also
+some edits to the default `index.php` and `wp-config.php` so that this
+layout will work, and also so that we can move the source and database
+to sites with other hostnames (e.g. for testing and local development)
+and not break due to WordPress typically embedding the site hostname in
+its internal data.
 
 Deploying the web site with no data
 -----------------------------------
