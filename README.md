@@ -1,8 +1,12 @@
 Voices web site
 ===============
 
-This is the source of the Voices web site, in production at
-http://voiceschapelhill.org.
+This was a proposed new way to deploy the Voices web site
+(http://voiceschapelhill.org). It was never used in
+production.
+
+I still think switching to this approach would be a good
+idea.
 
 Overview
 --------
